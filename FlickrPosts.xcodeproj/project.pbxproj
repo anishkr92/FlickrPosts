@@ -91,12 +91,12 @@
 		C272B67D239BBF7D005CBC87 /* FlickrPostsScene */ = {
 			isa = PBXGroup;
 			children = (
-				C272B67E239BBFA8005CBC87 /* FlickrPostsPresenter.swift */,
-				C272B67F239BBFA8005CBC87 /* FlickrPostsWorker.swift */,
-				C272B680239BBFA8005CBC87 /* FlickrPostsRouter.swift */,
-				C272B681239BBFA8005CBC87 /* FlickrPostsModels.swift */,
 				C272B682239BBFA8005CBC87 /* FlickrPostsViewController.swift */,
 				C272B683239BBFA8005CBC87 /* FlickrPostsInteractor.swift */,
+				C272B67E239BBFA8005CBC87 /* FlickrPostsPresenter.swift */,
+				C272B67F239BBFA8005CBC87 /* FlickrPostsWorker.swift */,
+				C272B681239BBFA8005CBC87 /* FlickrPostsModels.swift */,
+				C272B680239BBFA8005CBC87 /* FlickrPostsRouter.swift */,
 			);
 			path = FlickrPostsScene;
 			sourceTree = "<group>";
