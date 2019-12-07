@@ -18,6 +18,7 @@
 		C272B687239BBFA8005CBC87 /* FlickrPostsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272B681239BBFA8005CBC87 /* FlickrPostsModels.swift */; };
 		C272B688239BBFA8005CBC87 /* FlickrPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272B682239BBFA8005CBC87 /* FlickrPostsViewController.swift */; };
 		C272B689239BBFA8005CBC87 /* FlickrPostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272B683239BBFA8005CBC87 /* FlickrPostsInteractor.swift */; };
+		C272B68B239BC280005CBC87 /* FPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272B68A239BC280005CBC87 /* FPConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C272B681239BBFA8005CBC87 /* FlickrPostsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPostsModels.swift; sourceTree = "<group>"; };
 		C272B682239BBFA8005CBC87 /* FlickrPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPostsViewController.swift; sourceTree = "<group>"; };
 		C272B683239BBFA8005CBC87 /* FlickrPostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPostsInteractor.swift; sourceTree = "<group>"; };
+		C272B68A239BC280005CBC87 /* FPConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				C272B671239BBDE5005CBC87 /* Assets.xcassets */,
 				C272B673239BBDE5005CBC87 /* LaunchScreen.storyboard */,
 				C272B676239BBDE5005CBC87 /* Info.plist */,
+				C272B68A239BC280005CBC87 /* FPConstants.swift */,
 			);
 			path = FlickrPosts;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C272B68B239BC280005CBC87 /* FPConstants.swift in Sources */,
 				C272B685239BBFA8005CBC87 /* FlickrPostsWorker.swift in Sources */,
 				C272B669239BBDE4005CBC87 /* AppDelegate.swift in Sources */,
 				C272B687239BBFA8005CBC87 /* FlickrPostsModels.swift in Sources */,
