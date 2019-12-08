@@ -14,7 +14,7 @@ import UIKit
 
 protocol FlickrPostsBusinessLogic
 {
-    func doSomething(request: FlickrPosts.Request)
+    func showPosts(request: FlickrPosts.Request)
 }
 
 protocol FlickrPostsDataStore
@@ -30,11 +30,10 @@ class FlickrPostsInteractor: FlickrPostsBusinessLogic, FlickrPostsDataStore
     
     // MARK: Do something
     
-    func doSomething(request: FlickrPosts.Request) {
+    func showPosts(request: FlickrPosts.Request) {
         worker = FlickrPostsWorker()
-        worker?.doSomeWork()
-        
-        let response = FlickrPosts.Response()
-        presenter?.presentSomething(response: response)
+        worker!.getFlickrPosts(forText: request.text) { (response) in
+            self.presenter?.presentPosts(response: response)
+        }
     }
 }

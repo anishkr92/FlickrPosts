@@ -10,6 +10,10 @@ import Foundation
 
 struct FPConstants {
     
+    struct ApiEndpoints {
+        static let flickrRestServices = "https://api.flickr.com/services/rest/"
+    }
+    
     struct QueryKeys {
         static let method = "method"
         static let apiKey = "api_key"

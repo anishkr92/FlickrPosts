@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		75CE6974B2D34920AEE3E931 /* Pods_FlickrPosts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B22D7F43E0C01CFAF9CF8D9 /* Pods_FlickrPosts.framework */; };
+		C23E36C5239BD16A00DF5379 /* FlickrPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23E36C4239BD16A00DF5379 /* FlickrPostTableViewCell.swift */; };
 		C272B669239BBDE4005CBC87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272B668239BBDE4005CBC87 /* AppDelegate.swift */; };
 		C272B66B239BBDE4005CBC87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272B66A239BBDE4005CBC87 /* SceneDelegate.swift */; };
 		C272B670239BBDE4005CBC87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C272B66E239BBDE4005CBC87 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		1C87D3FCD1EFB7E61CD68E22 /* Pods-FlickrPosts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrPosts.release.xcconfig"; path = "Target Support Files/Pods-FlickrPosts/Pods-FlickrPosts.release.xcconfig"; sourceTree = "<group>"; };
 		7B22D7F43E0C01CFAF9CF8D9 /* Pods_FlickrPosts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrPosts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC18D050A14F6D4621BF67E /* Pods-FlickrPosts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrPosts.debug.xcconfig"; path = "Target Support Files/Pods-FlickrPosts/Pods-FlickrPosts.debug.xcconfig"; sourceTree = "<group>"; };
+		C23E36C4239BD16A00DF5379 /* FlickrPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPostTableViewCell.swift; sourceTree = "<group>"; };
 		C272B665239BBDE4005CBC87 /* FlickrPosts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrPosts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272B668239BBDE4005CBC87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C272B66A239BBDE4005CBC87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,8 +70,23 @@
 				8DC18D050A14F6D4621BF67E /* Pods-FlickrPosts.debug.xcconfig */,
 				1C87D3FCD1EFB7E61CD68E22 /* Pods-FlickrPosts.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C23E36C2239BD13F00DF5379 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C23E36C3239BD14A00DF5379 /* TableCells */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C23E36C3239BD14A00DF5379 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				C23E36C4239BD16A00DF5379 /* FlickrPostTableViewCell.swift */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 		C272B65C239BBDE4005CBC87 = {
@@ -93,6 +110,7 @@
 		C272B667239BBDE4005CBC87 /* FlickrPosts */ = {
 			isa = PBXGroup;
 			children = (
+				C23E36C2239BD13F00DF5379 /* Components */,
 				C272B67C239BBF71005CBC87 /* Scenes */,
 				C272B668239BBDE4005CBC87 /* AppDelegate.swift */,
 				C272B66A239BBDE4005CBC87 /* SceneDelegate.swift */,
@@ -241,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23E36C5239BD16A00DF5379 /* FlickrPostTableViewCell.swift in Sources */,
 				C272B68B239BC280005CBC87 /* FPConstants.swift in Sources */,
 				C272B685239BBFA8005CBC87 /* FlickrPostsWorker.swift in Sources */,
 				C272B669239BBDE4005CBC87 /* AppDelegate.swift in Sources */,

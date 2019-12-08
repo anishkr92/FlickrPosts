@@ -10,10 +10,36 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import Alamofire
+import AlamofireMapper
 
 class FlickrPostsWorker
 {
-    func doSomeWork() {
+    /// Get the flickr posts for the text and calls the completion handler
+    /// - Parameters:
+    ///   - text: The search text
+    ///   - completion: The completion block to handle the response
+    func getFlickrPosts(forText text: String, completion: @escaping (FlickrPosts.Response?) -> Void) {
+        var parameters = [String: Any]()
+        parameters[FPConstants.QueryKeys.method] = FPConstants.Methods.photoSearch
+        parameters[FPConstants.QueryKeys.apiKey] = FPConstants.ApiKeys.flickr
+        parameters[FPConstants.QueryKeys.format] = FPConstants.Formats.json
+        parameters[FPConstants.QueryKeys.noJsonCallback] = 1
+        parameters[FPConstants.QueryKeys.text] = text
+        parameters[FPConstants.QueryKeys.extras] = "url_q"
+        
+        Alamofire.request(FPConstants.ApiEndpoints.flickrRestServices, method: .get, parameters: parameters).responseObject { (dataResponse: DataResponse<FlickrPosts.Response>) in
+            guard dataResponse.result.isSuccess else {
+                if let error = dataResponse.error {
+                    debugPrint("Failed to get response from API with error: \(error)")
+                } else {
+                    debugPrint("Failed to get response from API with unknown error")
+                }
+                completion(nil)
+                return
+            }
+            
+            completion(dataResponse.result.value)
+        }
     }
 }

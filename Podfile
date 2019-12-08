@@ -7,5 +7,7 @@ target 'FlickrPosts' do
 
   # Pods for FlickrPosts
   pod 'Alamofire'
+  pod 'AlamofireMapper'
+  pod 'AlamofireImage'
 
 end

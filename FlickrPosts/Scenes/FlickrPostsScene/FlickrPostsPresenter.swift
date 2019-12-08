@@ -14,7 +14,7 @@ import UIKit
 
 protocol FlickrPostsPresentationLogic
 {
-    func presentSomething(response: FlickrPosts.Response)
+    func presentPosts(response: FlickrPosts.Response?)
 }
 
 class FlickrPostsPresenter: FlickrPostsPresentationLogic
@@ -23,8 +23,14 @@ class FlickrPostsPresenter: FlickrPostsPresentationLogic
     
     // MARK: Do something
     
-    func presentSomething(response: FlickrPosts.Response) {
+    func presentPosts(response: FlickrPosts.Response?) {
         let viewModel = FlickrPosts.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+        if let response = response {
+            for post in response.photos.photo {
+                let postVM = FlickrPosts.ViewModel.PostVM(title: post.title, url: post.urlQ, height: post.heightQ, width: post.widthQ)
+                viewModel.posts.append(postVM)
+            }
+        }
+        viewController?.displayPosts(viewModel: viewModel)
     }
 }
