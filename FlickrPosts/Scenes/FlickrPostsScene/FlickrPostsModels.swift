@@ -18,6 +18,7 @@ enum FlickrPosts
     // MARK: Request
     struct Request
     {
+        let text: String
     }
     
     // MARK: Response
@@ -53,7 +54,15 @@ enum FlickrPosts
     }
     
     // MARK: View Model
-    struct ViewModel
+    class ViewModel
     {
+        var posts = [PostVM]()
+        
+        struct PostVM {
+            let title: String
+            let url: String
+            let height: Int
+            let width: Int
+        }
     }
 }

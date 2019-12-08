@@ -11,16 +11,23 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 protocol FlickrPostsDisplayLogic: class
 {
-    func displaySomething(viewModel: FlickrPosts.ViewModel)
+    func displayPosts(viewModel: FlickrPosts.ViewModel)
 }
 
 class FlickrPostsViewController: UIViewController, FlickrPostsDisplayLogic
 {
     var interactor: FlickrPostsBusinessLogic?
     var router: (NSObjectProtocol & FlickrPostsRoutingLogic & FlickrPostsDataPassing)?
+    
+    var flickrPosts = [FlickrPosts.ViewModel.PostVM]()
+    
+    // MARK: Outlets
+    @IBOutlet weak var postsTableView: UITableView!
     
     // MARK: Object lifecycle
     
@@ -64,19 +71,44 @@ class FlickrPostsViewController: UIViewController, FlickrPostsDisplayLogic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        showPosts()
     }
     
-    // MARK: Do something
+    // MARK: Show Posts
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
-        let request = FlickrPosts.Request()
-        interactor?.doSomething(request: request)
+    func showPosts() {
+        let request = FlickrPosts.Request(text: "shirts")
+        interactor?.showPosts(request: request)
     }
     
-    func displaySomething(viewModel: FlickrPosts.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayPosts(viewModel: FlickrPosts.ViewModel) {
+        self.flickrPosts = viewModel.posts
+        self.postsTableView.reloadData()
+    }
+}
+
+extension FlickrPostsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return flickrPosts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FlickrPostTableViewCell", for: indexPath) as! FlickrPostTableViewCell
+        let post = flickrPosts[indexPath.row]
+        cell.titleTextLabel.text = post.title
+        cell.postImageHeightConstraint.constant = CGFloat(post.height)
+        cell.postImageWidthConstraint.constant = CGFloat(post.width)
+        cell.postImageView.image = nil
+        
+        // load image for the cell asynchronously
+        Alamofire.request(post.url).responseImage { (dataResponse) in
+            guard dataResponse.result.isSuccess else {
+                return
+            }
+            
+            cell.postImageView.image = dataResponse.result.value
+        }
+        
+        return cell
     }
 }
